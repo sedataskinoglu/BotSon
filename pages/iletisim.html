@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim | Botaniva</title>
+    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="stylesheet" href="../css/blog-style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="../images/logo.png" alt="Botaniva Logosu" class="logo_img">
+        </div>
+
+         <div class="search">
+            <input type="text" placeholder="Ürünlerde Ara">
+            <button type="submit">ARA</button>
+        </div>
+
+        <div class="kullanici_islemleri">
+                <a href="#" > Kayıt Ol</a>
+                <a href="#"> Giriş Yap</a>   
+        </div>
+     </header>
+
+    <nav>
+        <ul class="menu_ogeleri">
+            <li><a href="../index.html">Ana Sayfa</a>
+                 <li class="DropDown">
+                    <a href="#" class="dropbtn">Dükkan</a>
+                    <div class="dropdown_content">
+                        <a href="#">Ofis Bitkileri</a>
+                        <a href="#">Salon Bitkileri</a>
+                        <a href="#">Hayvan Dostu Bitkiler</a>
+                        <a href="#">Hediyelik Bitkiler</a>
+                    </div>
+                </li>
+                <li class="DropDown">
+                    <a href="#" class="dropbtn">İç Mekan Süs Bitkileri</a>
+                    <div class="dropdown_content">
+                        <a href="#">Saksılı Bitkileri</a>
+                        <a href="#">Kaktüs ve Sukulent</a>
+                        <a href="#">Aranjmanlar</a>
+                    </div>
+                </li>
+                <li class="DropDown">
+                    <a href="#" class="dropbtn">Dekoratif Saksılar</a>
+                    <div class="dropdown_content">
+                        <a href="#">Kumaş Saksılar</a>
+                        <a href="#">Özel Tasarım Saksılar</a>
+                        <a href="#">Moziak Saksılar</a>
+                    </div>
+                </li>
+                <li><a href="blog.html">Blog</a></li>
+             <li><a href="iletisim.html">İletişim</a></li>
+            </li> 
+        </ul>
+    </nav>
+
+    <div class="contact-container">
+        <div class="contact-iletisim">
+            
+            <div class="contact-info">
+                <h2 class="contact-title">Botaniva İletişim Bilgileri</h2>
+                <p class="contact-text">Aradığınız bitkiyi bulamadınız mı? Aşağıdaki bilgiler ile ekibimizle iletişime geçebilirsiniz:</p>
+                
+                <div class="info-item">
+                    <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="info-details">
+                        <strong>Adres:</strong>
+                        <p>Yenişehir Mahallesi Üstad sokak no:44 Sivas/Merkez</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                    <div class="info-details">
+                        <strong>Telefon:</strong>
+                        <p>+90 (222) 222 22 22</p>
+                    </div>
+                </div>
+               
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="info-details">
+                        <strong>E-Mail:</strong>
+                        <p>botaniva@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-area">
+                <h2 class="contact-title">Sorularınız İçin Bize Ulaşın</h2>
+                <form class="contact-form"  id="botaniva-form">
+                    <div class="form-row">
+                        <input type="text" placeholder="Adınız Soyadınız" required>
+                        <input type="tel" placeholder="Telefon">
+                    </div>
+                    <div class="form-row">
+                        <input type="email" placeholder="E-Mail" required>
+                        <input type="text" placeholder="Konu">
+                    </div>
+                    <textarea placeholder="Mesajınız" rows="5"></textarea>
+                    <button type="submit" class="btn-submit">GÖNDER</button>
+                    <div id="success-message" style="display: none; color: #7a8a4d;  margin-top:20px; font-weight: bold;">
+                    Mesajınız başarıyla gönderildi! Sizinle en kısa sürede iletişime geçeceğiz.
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+    <script>
+    document.getElementById("botaniva-form").addEventListener("submit", function(event) {
+     // Sayfanın yenilenmesini engeller
+      event.preventDefault();
+
+    // Formu gizleyebilir veya sadece mesajı gösterebilirsin
+      const message = document.getElementById("success-message");
+      message.style.display = "block";
+
+      // İstersen formu sıfırlayabilirsin
+       this.reset();
+
+      // Mesajın 5 saniye sonra kaybolmasını istersen:
+      setTimeout(() => {
+      message.style.display = "none";
+       }, 5000);
+    });
+    </script>
+
+    <div class="slim-bar">
+     <p>İlginiz için teşekkür ederiz.</p>
+    </div>
+
+
+ <footer class="main-footer">
+    <div class="footer-image">
+        <img src="../images/footerİmg.jpg" alt="Botaniva Footer Fotoğrafı">
+    </div>
+
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="about-col">
+                <div class="footer-logo-kismi">
+                    <div class="footer-logo-container">
+                        <img src="../images/tasarimLogo.jpg" alt="Botaniva Logo" class="footer-img-logo">
+                    </div>
+                </div>
+                <p class="footer-about-text">
+                    BOTANİVA, insanların doğaya ve doğala erişebilirliğini arttırmak için doğmuş bir projedir.
+                </p>
+            </div> <div class="contact-col">
+                <h3>İLETİŞİM BİLGİLERİ</h3>
+                <div class="contact-item">
+                    <p><strong>Adres:</strong><br>Yenişehir Mahallesi Üstad sokak no:44 Sivas/Merkez</p>
+                </div>
+                                <div class="contact-item">
+                    <p><strong>Telefon:</strong><br>+90 (222) 222 22 22</p>
+                </div>
+                <div class="contact-item">
+                    <p><strong>E-Mail:</strong><br>botaniva@gmail.com</p>
+                </div>
+            </div> <div class="links-col">
+                <h3>KATEGORİ</h3>
+                <ul>
+                    <li><a href="#">Ofis Bitkileri</a></li>
+                    <li><a href="#">Salon Bitkileri</a></li>
+                    <li><a href="#">Hayvan Dostu Bitkiler</a></li>
+                    <li><a href="#">Saksılı Bitkiler</a></li>
+                    <li><a href="#">Kaktüs Ve Sukulent</a></li>
+                    <li><a href="#">Mozaik Saksılar</a></li>
+                </ul>
+            </div> <div class="links-col">
+                <h3>BAĞLANTILAR</h3>
+                <ul>
+                    <li><a href="../index.html#hakkimizda-text">Hakkımızda</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="iletisim.html">İletişim</a></li>
+                </ul>
+             </div>
+        </div>
+    </div> 
+ </footer>
+
+    </body>
+</html>
