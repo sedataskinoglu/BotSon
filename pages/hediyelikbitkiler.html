@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botaniva</title>
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <style>
+    body{
+    background-color: rgb(245, 15, 15)808;
+    line-height: 1.6;
+     font-family: 'Roboto', sans-serif;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 50px;
+    border-bottom: 1px solid #eee;
+}
+
+.logo{
+    flex : 1;
+}
+
+.logo_img{
+    height: 100px;
+    width: auto;
+    display: block;
+
+}
+.search { 
+    flex: 0 1 400px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.search input {
+    width: 70%;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+}
+
+.kullanici_islemleri {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    font-size: 14px;
+}
+.kullanici_islemleri a {
+    color: #000;
+
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+}
+
+.menu_ogeleri {
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    list-style: none;
+    padding: 10px ;
+    border-bottom: 1px solid #eee;
+}
+
+.menu_ogeleri li {
+    margin: 0 15px;
+    position: relative;
+}
+
+.menu_ogeleri a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.dropdown_content {
+    display: none;
+    position: absolute;
+    background: #fff;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 100;
+    border: 1px solid #eee;
+}
+
+.dropdown_content a {
+    display: block;
+    padding: 10px 15px;
+    border-bottom: 1px solid #f9f9f9;
+}
+
+.DropDown:hover .dropdown_content {
+    display: block;
+}
+
+ /* Üzerine gelince yeşil olur */
+.menu_ogeleri a:hover {
+    color: #4CAF50;
+}
+
+.bitki_kartlari {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.kart {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 15px;
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.kart:hover {
+    transform: scale(1.02);
+}
+
+.kart img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.kart_icerik h3 {
+    margin: 0;
+    color: #2e7d32;
+}
+
+.kart_icerik pre {
+    margin-top: 10px;
+    color: #555;
+	font-size: 15px;
+	font-family: 'Roboto', sans-serif;
+}    
+.sepete-ekle{
+    margin-top:10px;
+    padding:10px;
+    background:#5d6d4e;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    width:100%;
+    transition:0.3s;
+}
+
+.sepete-ekle:hover{
+    background:#46563c;
+}
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="../images/logo.png" alt="Botaniva Logosu" class="logo_img">
+        </div>
+
+         <div class="search">
+            <input type="text" placeholder="Ürünlerde Ara">
+            <button type="submit">ARA</button>
+        </div>
+
+        <div class="kullanici_islemleri">
+            <a href="#"><span>🛒</span></a>
+                <a href="giriskayitol.html" > Kayıt Ol</a>
+                <a href="giriskayitol.html"> Giriş Yap</a>   
+        </div>
+     </header>
+  <nav>
+        <ul class="menu_ogeleri">
+                <li><a href="../index.html">Hakkımızda</a></li>
+                 <li class="DropDown">
+                    <a href="#" class="dropbtn">Dükkan</a>
+                    <div class="dropdown_content">
+                        <a href="ofisbitkileri.html">Ofis Bitkileri</a>
+                        <a href="salonbitkileri.html">Salon Bitkileri</a>
+                        <a href="hayvandostubitkiler.html">Hayvan Dostu Bitkiler</a>
+                        <a href="hediyelikbitkiler.html">Hediyelik Bitkiler</a>
+                        <a href="legocicekler.html">Lego Çiçekler</a>
+                    </div>
+                </li>
+                <li class="DropDown">
+                    <a href="#" class="dropbtn">İç Mekan Süs Bitkileri</a>
+                    <div class="dropdown_content">
+                        <a href="saksilibitkiler.html">Saksılı Bitkileri</a>
+                        <a href="kaktusvesukulent.html">Kaktüs ve Sukulent</a>
+                        <a href="aranjmanlar.html">Aranjmanlar</a>
+                    </div>
+                </li>
+                <li class="DropDown">
+                    <a href="#" class="dropbtn">Dekoratif Saksılar</a>
+                    <div class="dropdown_content">
+                        <a href="kumassaksilar.html">Kumaş Saksılar</a>
+                        <a href="ozeltasarimsaksilar.html">Özel Tasarım Saksılar</a>
+                        <a href="mozaiksaksilar.html">Mozaik Saksılar</a>
+                    </div>
+                </li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+  </nav>
+
+  <div class="kart">
+        <img src="../images/sukulent.jpg" alt="Bitki 1">
+        <div class="kart_icerik">
+            <h3>Sukulent</h3>
+            <pre>
+    Işık: Bol ışık sever
+    Sulama: 10–15 günde 1
+    Bakım: Fazla su kök çürütür
+            </pre>
+            <button class="sepete-ekle" onclick="sepeteEkle('Sukulent')">Sepete Ekle</button>
+        </div>
+    </div>
+
+    <div class="kart">
+        <img src="../images/kaktüs.jpg" alt="Bitki 2">
+        <div class="kart_icerik">
+            <h3>Kaktüs</h3>
+            <pre>
+    Işık: Direkt güneş sever
+    Sulama: Ayda 1–2
+    Bakım: En az bakım isteyen bitkilerden biridir
+            </pre>
+            <button class="sepete-ekle" onclick="sepeteEkle('Kaktüs')">Sepete Ekle</button>
+        </div>
+    </div>
+
+    <div class="kart">
+        <img src="../images/Bonsai.jpg" alt="Bitki 3">
+        <div class="kart_icerik">
+            <h3>Bonsai</h3>
+            <pre>
+    Işık: Aydınlık ortam
+    Sulama: Toprak hafif nemli tutulmalı
+    Bakım: Düzenli budama gerekir
+            </pre>
+            <button class="sepete-ekle" onclick="sepeteEkle('Bonsai')">Sepete Ekle</button>
+        </div>
+    </div>
+
+        <div class="kart">
+        <img src="../images/lavanta.jpg" alt="Bitki 4">
+        <div class="kart_icerik">
+            <h3>Lavanta</h3>
+            <pre>
+    Işık: Bol güneş
+    Sulama: Az su
+    Bakım: Kuraklığa dayanıklıdır, kokuludur
+            </pre>
+            <button class="sepete-ekle" onclick="sepeteEkle('Lavanta')">Sepete Ekle</button>
+        </div>
+    </div>                                                              
+
+        <div class="kart">
+        <img src="../images/antoryum.jpg" alt="Bitki 5">
+        <div class="kart_icerik">
+            <h3>Antoryum</h3>
+            <pre>
+    Işık: Dolaylı ışık
+    Sulama: Haftada 1–2
+    Bakım: Nemli ortam sever
+            </pre>
+            <button class="sepete-ekle" onclick="sepeteEkle('Antoryum')">Sepete Ekle</button>
+        </div>
+    </div>
+
+     <div class="kart">
+        <img src="../images/Aloevera.jpg" alt="Bitki 6">
+        <div class="kart_icerik">
+            <h3>Aloevera</h3>
+            <pre>
+    Işık: Güneşli ortam
+    Sulama: Az su (2–3 haftada 1)
+    Bakım: Fazla suya hassas
+            </pre>
+            <button class="sepete-ekle" onclick="sepeteEkle('Aloevera')">Sepete Ekle</button>
+        </div>
+    </div>
+     <div class="kart">
+        <img src="../images/paraciceği.jpg" alt="Bitki 7">
+        <div class="kart_icerik">
+            <h3>Para Çiçeği</h3>
+            <pre>
+    Işık: Dolaylı ışık
+    Sulama: Haftada 1
+    Bakım: Hızlı büyür, kolay çoğalır
+            </pre>
+            <button class="sepete-ekle" onclick="sepeteEkle('Para Çiçeği')">Sepete Ekle</button>
+        </div>
+    </div>
+
+</section>
+
+  
+</body>
+</html>

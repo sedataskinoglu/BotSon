@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botaniva</title>
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <style>
+    body{
+    background-color: rgb(245, 15, 15)808;
+    line-height: 1.6;
+     font-family: 'Roboto', sans-serif;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 50px;
+    border-bottom: 1px solid #eee;
+}
+
+.logo{
+    flex : 1;
+}
+
+.logo_img{
+    height: 100px;
+    width: auto;
+    display: block;
+
+}
+.search { 
+    flex: 0 1 400px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.search input {
+    width: 70%;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+}
+
+.kullanici_islemleri {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    font-size: 14px;
+}
+.kullanici_islemleri a {
+    color: #000;
+
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+}
+
+.menu_ogeleri {
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    list-style: none;
+    padding: 10px ;
+    border-bottom: 1px solid #eee;
+}
+
+.menu_ogeleri li {
+    margin: 0 15px;
+    position: relative;
+}
+
+.menu_ogeleri a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.dropdown_content {
+    display: none;
+    position: absolute;
+    background: #fff;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 100;
+    border: 1px solid #eee;
+}
+
+.dropdown_content a {
+    display: block;
+    padding: 10px 15px;
+    border-bottom: 1px solid #f9f9f9;
+}
+
+.DropDown:hover .dropdown_content {
+    display: block;
+}
+
+ /* Üzerine gelince yeşil olur */
+.menu_ogeleri a:hover {
+    color: #4CAF50;
+}
+   
+.container{
+    max-width:1100px;
+    margin:30px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:0 20px;
+}
+
+/* CARD */
+.card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:15px;
+}
+
+.card-content h3{
+    color:#5d6d4e;
+    margin:0;
+}
+
+.card-content p{
+    font-size:14px;
+    color:#666;
+}
+
+.price{
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.btn{
+    display:block;
+    text-align:center;
+    margin-top:10px;
+    padding:10px;
+    background:#5d6d4e;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="../images/logo.png" alt="Botaniva Logosu" class="logo_img">
+        </div>
+
+         <div class="search">
+            <input type="text" placeholder="Ürünlerde Ara">
+            <button type="submit">ARA</button>
+        </div>
+
+        <div class="kullanici_islemleri">
+                <a href="#"><span>🛒</span></a>
+                <a href="giriskayitol.html" > Kayıt Ol</a>
+                <a href="giriskayitol.html"> Giriş Yap</a>   
+        </div>
+     </header>
+  <nav>
+        <ul class="menu_ogeleri">
+                <li><a href="../index.html">Hakkımızda</a></li>
+                 <li class="DropDown">
+                    <a href="#" class="dropbtn">Dükkan</a>
+                    <div class="dropdown_content">
+                        <a href="ofisbitkileri.html">Ofis Bitkileri</a>
+                        <a href="salonbitkileri.html">Salon Bitkileri</a>
+                        <a href="hayvandostubitkiler.html">Hayvan Dostu Bitkiler</a>
+                        <a href="hediyelikbitkiler.html">Hediyelik Bitkiler</a>
+                        <a href="legocicekler.html">Lego Çiçekler</a>
+                    </div>
+                </li>
+                <li class="DropDown">
+                    <a href="#" class="dropbtn">İç Mekan Süs Bitkileri</a>
+                    <div class="dropdown_content">
+                        <a href="saksilibitkiler.html">Saksılı Bitkileri</a>
+                        <a href="kaktusvesukulent.html">Kaktüs ve Sukulent</a>
+                        <a href="aranjmanlar.html">Aranjmanlar</a>
+                    </div>
+                </li>
+                <li class="DropDown">
+                    <a href="#" class="dropbtn">Dekoratif Saksılar</a>
+                    <div class="dropdown_content">
+                        <a href="kumassaksilar.html">Kumaş Saksılar</a>
+                        <a href="ozeltasarimsaksilar.html">Özel Tasarım Saksılar</a>
+                        <a href="mozaiksaksilar.html">Mozaik Saksılar</a>
+                    </div>
+                </li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+  </nav>
+<div class="container">
+
+    <div class="card">
+        <img src="../images/özeltas1.jpg">
+        <div class="card-content">
+            <h3>Özel Tasarım Saksı</h3>
+            <p>Modern evler için sade tasarım.</p>
+            <div class="price">₺190</div>
+            <a href="#" class="btn">Sepete Ekle</a>
+        </div>
+    </div>
+	<div class="card">
+        <img src="../images/özeltas2.jpg">
+        <div class="card-content">
+            <h3>Özel Tasarım Saksı</h3>
+            <p>Sevimli saksı isteyenler için</p>
+            <div class="price">₺170</div>
+            <a href="#" class="btn">Sepete Ekle</a>
+        </div>
+    </div>
+
+   
+
+   
+
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

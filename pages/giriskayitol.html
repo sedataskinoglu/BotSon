@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Botaniva</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body{
+            font-family: Arial;
+            margin:0;
+            background:#f4f6f8;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .box{
+            width:400px;
+            background:white;
+            padding:25px;
+            border-radius:12px;
+            box-shadow:0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h2{
+            text-align:center;
+            color:#5d6d4e;
+        }
+
+        .tabs{
+            display:flex;
+            margin-bottom:20px;
+        }
+
+        .tabs button{
+            flex:1;
+            padding:10px;
+            border:none;
+            cursor:pointer;
+            background:#e8efe2;
+            color:#5d6d4e;
+        }
+
+        .tabs button.active{
+            background:#5d6d4e;
+            color:white;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            margin:8px 0;
+            border:1px solid #ccc;
+            border-radius:8px;
+        }
+
+        button.submit{
+            width:100%;
+            padding:10px;
+            background:#5d6d4e;
+            color:white;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+            margin-top:10px;
+        }
+
+        button.submit:hover{
+            background:#4a5a3e;
+        }
+
+        .form{
+            display:none;
+        }
+
+        .form.active{
+            display:block;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>Botaniva</h2>
+
+    <div class="tabs">
+        <button onclick="showForm('login')" class="active" id="loginBtn">Giriş Yap</button>
+        <button onclick="showForm('register')" id="registerBtn">Kayıt Ol</button>
+    </div>
+
+    <!-- GİRİŞ -->
+    <div id="login" class="form active">
+        <input type="email" placeholder="E-posta">
+        <input type="password" placeholder="Şifre">
+        <button class="submit">Giriş Yap</button>
+    </div>
+
+    <!-- KAYIT -->
+    <div id="register" class="form">
+        <input type="text" placeholder="Ad Soyad">
+        <input type="email" placeholder="E-posta">
+        <input type="password" placeholder="Şifre">
+        <button class="submit">Kayıt Ol</button>
+    </div>
+
+</div>
+
+<script>
+    function showForm(type){
+        document.getElementById("login").classList.remove("active");
+        document.getElementById("register").classList.remove("active");
+
+        document.getElementById(type).classList.add("active");
+
+        document.getElementById("loginBtn").classList.remove("active");
+        document.getElementById("registerBtn").classList.remove("active");
+
+        if(type === "login"){
+            document.getElementById("loginBtn").classList.add("active");
+        } else {
+            document.getElementById("registerBtn").classList.add("active");
+        }
+    }
+</script>
+
+</body>
+</html>
