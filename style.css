@@ -22,19 +22,44 @@ body{
     display: block;
 
 }
-.search { 
-    flex: 0 1 400px;
+.search-box {
     display: flex;
-    justify-content: center;
-    position: relative;
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px; /* Tam yuvarlak kenarlar */
+    padding: 5px 15px;
+    transition: all 0.3s ease;
+    max-width: 8000px; /* Genişliği buradan ayarlayabilirsin */
 }
 
-.search input {
-    width: 70%;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-radius: 20px 0 0 20px;
+.search-box:focus-within {
+    border-color: #7a9d54; /* Botaniva temasına uygun yeşil tonu */
+    box-shadow: 0 0 8px rgba(122, 157, 84, 0.2);
+}
+
+.search-box input {
+    border: none;
     outline: none;
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.search-box button {
+    background-color: #7a9d54; /* Marka rengin */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    margin-left: 10px;
+}
+
+.search-box button:hover {
+    background-color: #5f7a41; /* Üzerine gelince biraz daha koyu yeşil */
 }
 
 .kullanici_islemleri {
@@ -543,5 +568,6 @@ h3 {
         max-width: 100%;
     }
 }
+
 
 

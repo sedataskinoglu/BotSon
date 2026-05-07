@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Botaniva</title>
     <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <body>
     <header class="header">
@@ -12,49 +13,54 @@
             <img src="images/logo.png" alt="Botaniva Logosu" class="logo_img">
         </div>
 
-         <div class="search">
-            <input type="text" placeholder="Ürünlerde Ara">
-            <button type="submit">ARA</button>
-        </div>
+         
+   <div class="search-box">
+    <input type="text" id="searchBox" placeholder="Ürünlerde ara..." onkeypress="handleKeyPress(event)">
+    <button type="button" onclick="sayfayaGit()">ARA</button>
+</div>
 
         <div class="kullanici_islemleri">
-            <a href="#"><span>🛒</span></a>
-                <a href="pages/giriskayitol.html" > Kayıt Ol</a>
-                <a href="pages/giriskayitol.html"> Giriş Yap</a>   
-        </div>
+            <a href="pages/sepet.html"><i class="bi bi-basket2-fill"></i></a>
+            <a href="pages/giriskayitol.html" > Kayıt Ol</a>
+            <a href="pages/giriskayitol.html"> Giriş Yap</a>
+           
+   
+   
+             </div>
      </header>
-  <nav>
-        <ul class="menu_ogeleri">
-                <li><a href="../index.html">Ana Sayfa</a></li>
-                 <li class="DropDown">
-                    <a href="#" class="dropbtn">Dükkan</a>
-                    <div class="dropdown_content">
-                        <a href="pages/ofisbitkileri.html">Ofis Bitkileri</a>
-                        <a href="pages/salonbitkileri.html">Salon Bitkileri</a>
-                        <a href="pages/hayvandostubitkiler.html">Hayvan Dostu Bitkiler</a>
-                        <a href="pages/hediyelikbitkiler.html">Hediyelik Bitkiler</a>
-                    </div>
-                </li>
-                <li class="DropDown">
-                    <a href="#" class="dropbtn">İç Mekan Süs Bitkileri</a>
-                    <div class="dropdown_content">
-                        <a href="pages/saksilibitkiler.html">Saksılı Bitkileri</a>
-                        <a href="pages/kaktusvesukulent.html">Kaktüs ve Sukulent</a>
-                        <a href="pages/aranjmanlar.html">Aranjmanlar</a>
-                    </div>
-                </li>
-                <li class="DropDown">
-                    <a href="#" class="dropbtn">Dekoratif Saksılar</a>
-                    <div class="dropdown_content">
-                        <a href="pages/kumassaksilar.html">Kumaş Saksılar</a>
-                        <a href="pages/ozeltasarimsaksilar.html">Özel Tasarım Saksılar</a>
-                        <a href="pages/mozaiksaksilar.html">Mozaik Saksılar</a>
-                    </div>
-                </li>
-                <li><a href="pages/blog.html">Blog</a></li>
-                <li><a href="pages/iletisim.html">İletişim</a></li>
-        </ul>
-  </nav>
+    <nav>
+            <ul class="menu_ogeleri">
+                    <li><a href="../index.html">Ana Sayfa</a></li>
+                    <li class="DropDown">
+                        <a href="#" class="dropbtn">Dükkan</a>
+                        <div class="dropdown_content">
+                            <a href="pages/ofisbitkileri.html">Ofis Bitkileri</a>
+                            <a href="pages/salonbitkileri.html">Salon Bitkileri</a>
+                            <a href="pages/hayvandostubitkiler.html">Hayvan Dostu Bitkiler</a>
+                            <a href="pages/hediyelikbitkiler.html">Hediyelik Bitkiler</a>
+                            <a href="pages/legocicekler.html">Lego Çiçekler</a>
+                        </div>
+                    </li>
+                    <li class="DropDown">
+                        <a href="#" class="dropbtn">İç Mekan Süs Bitkileri</a>
+                        <div class="dropdown_content">
+                            <a href="pages/saksilibitkiler.html">Saksılı Bitkileri</a>
+                            <a href="pages/kaktusvesukulent.html">Kaktüs ve Sukulent</a>
+                            <a href="pages/aranjmanlar.html">Aranjmanlar</a>
+                        </div>
+                    </li>
+                    <li class="DropDown">
+                        <a href="#" class="dropbtn">Dekoratif Saksılar</a>
+                        <div class="dropdown_content">
+                            <a href="pages/kumassaksilar.html">Kumaş Saksılar</a>
+                            <a href="pages/ozeltasarimsaksilar.html">Özel Tasarım Saksılar</a>
+                            <a href="pages/mozaiksaksilar.html">Mozaik Saksılar</a>
+                        </div>
+                    </li>
+                    <li><a href="pages/blog.html">Blog</a></li>
+                    <li><a href="pages/iletisim.html">İletişim</a></li>
+            </ul>
+    </nav>
 
   <div class="slider-container">
     <div class="slider-wrapper" id="sliderWrapper">
@@ -278,7 +284,36 @@
         </div>
      </div> 
     </footer>
+<script>
+    function sayfayaGit() {
+    // Input içindeki metni al, küçük harfe çevir ve boşlukları temizle
+    var aranan = document.getElementById("searchBox").value.toLowerCase().trim();
 
+    // Yönlendirme mantığı
+    if (aranan.includes("ofis")) {
+        window.location.href = "pages/ofisbitkileri.html";
+    } 
+    else if (aranan.includes("salon")) {
+        window.location.href = "pages/salonbitkileri.html";
+    } 
+    else if (aranan.includes("kaktüs") || aranan.includes("kaktus")) {
+        window.location.href = "pages/kaktusvesukulent.html";
+    } 
+    else if (aranan.includes("hediye")) {
+        window.location.href = "pages/hediyelikbitkiler.html";
+    } 
+    else if (aranan.includes("lego")) {
+        window.location.href = "pages/legocicekler.html";
+    }
+    else if (aranan.includes("saksı") || aranan.includes("saksi")) {
+        // Burada birden fazla saksı sayfanız var, genel birine yönlendirebilirsiniz
+        window.location.href = "pages/mozaiksaksilar.html";
+    }
+    else {
+        alert("Aradığınız kategori bulunamadı. Lütfen 'ofis', 'salon' veya 'kaktüs' gibi terimler deneyin.");
+    }
+}
+</script>
    
     
 

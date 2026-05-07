@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Botaniva</title>
     <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <style>
-      body{
+    body{
     background-color: rgb(245, 15, 15)808;
     line-height: 1.6;
      font-family: 'Roboto', sans-serif;
@@ -30,19 +31,44 @@
     display: block;
 
 }
-.search { 
-    flex: 0 1 400px;
+.search-box {
     display: flex;
-    justify-content: center;
-    position: relative;
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px; /* Tam yuvarlak kenarlar */
+    padding: 5px 15px;
+    transition: all 0.3s ease;
+    max-width: 400px; /* Genişliği buradan ayarlayabilirsin */
 }
 
-.search input {
-    width: 70%;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-radius: 20px 0 0 20px;
+.search-box:focus-within {
+    border-color: #7a9d54; /* Botaniva temasına uygun yeşil tonu */
+    box-shadow: 0 0 8px rgba(122, 157, 84, 0.2);
+}
+
+.search-box input {
+    border: none;
     outline: none;
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.search-box button {
+    background-color: #7a9d54; /* Marka rengin */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    margin-left: 10px;
+}
+
+.search-box button:hover {
+    background-color: #5f7a41; /* Üzerine gelince biraz daha koyu yeşil */
 }
 
 .kullanici_islemleri {
@@ -110,62 +136,78 @@
     color: #4CAF50;
 }
 
-.bitki_kartlari {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.urun-container {
+    display: grid !important; 
+    /* Kartların yan yana gelmesini sağlayan kritik satır */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 320px)) !important;
+    gap: 30px; 
+    justify-content: center; 
+    align-items: start; 
+    max-width: 1200px;
+    margin: 40px auto;
     padding: 20px;
 }
 
-.kart {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    background: #f5f5f5;
-    padding: 15px;
-    border-radius: 10px;
+.urun-card {
+    width: 100%; 
+    max-width: 320px; /* Kartın devleşmesini engeller */
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: 0.3s;
+    margin: 0 auto; 
+    display: flex;
+    flex-direction: column;
 }
 
-.kart:hover {
-    transform: scale(1.02);
+.urun-card:hover {
+    transform: scale(1.03);
 }
 
-.kart img {
-    width: 150px;
-    height: 150px;
+.urun-card img {
+    width: 100%;
+    height: 200px;
     object-fit: cover;
-    border-radius: 10px;
 }
 
-.kart_icerik h3 {
+.urun-info {
+    padding: 15px;
+    flex-grow: 1; /* İçerik az olsa bile butonun yerini sabit tutmaya yardımcı olur */
+}
+
+.urun-info h3 {
     margin: 0;
-    color: #2e7d32;
+    color: #5d6d4e;
 }
 
-.kart_icerik pre {
+.urun-info p {
+    font-size: 14px;
+    color: #666;
+    margin: 8px 0;
+}
+
+.fiyat {
+    font-weight: bold;
+    color: #333;
+}
+
+.btn {
+    display: block;
+    text-align: center;
     margin-top: 10px;
-    color: #555;
-	font-size: 15px;
-	font-family: 'Roboto', sans-serif;
-}  
-.sepete-ekle{
-    margin-top:10px;
-    padding:10px;
-    background:#5d6d4e;
-    color:white;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    width:100%;
-    transition:0.3s;
+    padding: 10px;
+    background: #5d6d4e;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s;
 }
 
-.sepete-ekle:hover{
-    background:#46563c;
+.btn:hover {
+    background: #46563c;
 }
-
-    </style>
+</style>
 </head>
 <body>
     <header class="header">
@@ -173,13 +215,12 @@
             <img src="../images/logo.png" alt="Botaniva Logosu" class="logo_img">
         </div>
 
-         <div class="search">
-            <input type="text" placeholder="Ürünlerde Ara">
-            <button type="submit">ARA</button>
-        </div>
-
+        <div class="search-box">
+    <input type="text" id="searchBox" placeholder="Ürünlerde ara..." onkeypress="handleKeyPress(event)">
+    <button type="button" onclick="sayfayaGit()">ARA</button>
+</div>
         <div class="kullanici_islemleri">
-            <a href="#"><span>🛒</span></a>
+            <a href="sepet.html"><i class="bi bi-basket2-fill"></i></a>
                 <a href="giriskayitol.html" > Kayıt Ol</a>
                 <a href="giriskayitol.html"> Giriş Yap</a>   
         </div>
@@ -217,89 +258,123 @@
                 <li><a href="iletisim.html">İletişim</a></li>
         </ul>
   </nav>
-<section class="bitki_kartlari">
-
-    <div class="kart">
-        <img src="../images/bariscicegi.jpg" alt="Bitki 1">
-        <div class="kart_icerik">
-            <h3>Barış Çiçeği</h3>
-            <pre>
-    Işık: Direkt güneş istemez, yarı gölge idealdir
-    Sulama: Toprak kurudukça sulanır (genelde haftada 1)
-    Özellik: Hava temizleyici olarak bilinir
-    Dikkat: Fazla su yaprakları sarartır  
-            </pre>
-            <button class="sepete-ekle" onclick="sepeteEkle('Barış Çiçeği')">
-        Sepete Ekle
-    </button>
-        </div>
+<div class="urun-container">
+     <div class="urun-card">
+    <img src="../images/bariscicegi.jpg" alt="">
+    <div class="urun-info">
+        <h3>Barış Çiçeği</h3>
+        <p>
+            Işık: Direkt güneş istemez, yarı gölge idealdir.<br>
+            Sulama: Toprak kurudukça sulanır <br>
+            Özellik: Hava temizleyici olarak bilinir.<br>
+            Dikkat: Fazla su yaprakları sarartır.
+        </p>
+        <div class="fiyat">₺299</div>
+        
+        <!-- CLICK OLAYINI BURAYA EKLİYORUZ -->
+        <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Barış Çiçeği', 299, '../images/bariscicegi.jpg')">Sepete Ekle</a>
     </div>
+</div>
+   
 
-    <div class="kart">
-        <img src="../images/paşakılıcı.jpg" alt="Bitki 2">
-        <div class="kart_icerik">
+    
+    <div class="urun-card">
+        <img src="../images/paşakılıcı.jpg" alt="">
+        <div class="urun-info">
             <h3>Paşa Kılıcı</h3>
-            <pre>
-    Işık: Her ortamda yaşar (karanlıkta bile dayanır)
-    Sulama: Çok az su ister (2-3 haftada bir)
-    Özellik: En dayanıklı bitkilerden biri
-    Dikkat: Fazla sulama kök çürütür
-            </pre>
-            <button class="sepete-ekle" onclick="sepeteEkle('Paşa Kılıcı')">
-        Sepete Ekle
-    </button>
-        </div>
-    </div>
+            <p>
+Işık: Her ortamda yaşar (karanlıkta bile yaşar)<br>
+Sulama: Çok az su ister (2-3 haftada bir)<br>
+Özellik: En dayanıklı bitkilerden biri.<br>
+Dikkat: Fazla sulama kök çürütür               
+           
+            </p>
 
-    <div class="kart">
-        <img src="../images/salonsarmasıgı.jpg" alt="Bitki 3">
-        <div class="kart_icerik">
+            <div class="fiyat">₺350</div>
+             <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Paşakılıcı', 350, '../images/paşakılıcı.jpg')">Sepete Ekle</a>
+    </div>
+            
+        </div>
+    
+
+    <div class="urun-card">
+        <img src="../images/salonsarmasıgı.jpg" alt="">
+        <div class="urun-info">
             <h3>Salon Sarmaşığı</h3>
-            <pre>
-    Işık: Orta ışık sever
-    Sulama: Toprak kurudukça sulanır
-    Özellik: Hızlı büyür, sarkarak güzel görünür
-    Dikkat: Çok karanlıkta yaprakları küçülür
-            </pre>
-            <button class="sepete-ekle" onclick="sepeteEkle('Salon Sarmaşığı')">
-        Sepete Ekle
-    </button>
+            <p>
+Işık: Orta ışık sever.<br>
+Sulama: Toprak kurudukça sulanır.<br>
+Özellik: Hızlı büyür, sarkarak güzel görünür.<br>
+Dikkat: Çok karanlıkta yaprakları küçülür.                
+            </p> 
+
+           
+            <div class="fiyat">₺180</div>
+            <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Salon Sarmaşığı', 180, '../images/salonsarmasıgı.jpg')">Sepete Ekle</a>
+
+           
         </div>
     </div>
 
-        <div class="kart">
-        <img src="../images/zzbitkisi.jpg" alt="Bitki 4">
-        <div class="kart_icerik">
+
+    <div class="urun-card">
+        <img src="../images/zzbitkisi.jpg" alt="">
+        <div class="urun-info">
             <h3>ZZ Bitkisi</h3>
-            <pre>
-    Işık: Az ışığa dayanıklıdır
-    Sulama: 2-3 haftada bir yeterli
-    Özellik: Çok az bakım ister
-    Dikkat: Aşırı sulama en büyük düşmanıdır
-            </pre>
-            <button class="sepete-ekle" onclick="sepeteEkle('ZZ Bitkisi')">
-        Sepete Ekle
-    </button>
+            <p>
+Işık: Az ışığa dayanıklıdır.<br>
+Sulama: 2-3 haftada 1 yeterli.<br>
+Özellik: Çok az bakım ister.<br>
+Dikkat: Aşırı sulama en büyük düşmanıdır.
+            </p>
 
-        </div>
-    </div>                                                              
+            <div class="fiyat">₺320</div>
+             <a href="javascript:void(0)" class="btn" onclick="sepeteAt('ZZ Bitkisi', 320, '../images/zzbitkisi.jpg')">Sepete Ekle</a>
 
-        <div class="kart">
-        <img src="../images/dracaena.jpg" alt="Bitki 5">
-        <div class="kart_icerik">
-            <h3>Dracaena</h3>
-            <pre>
-    Işık: Dolaylı ışık sever
-    Sulama: Haftada 1 (toprak kontrol edilerek)
-    Özellik: Ofise modern bir görünüm katar
-    Dikkat: Musluk suyundaki klora hassastır
-            </pre>
-            <button class="sepete-ekle" onclick="sepeteEkle('Dracaena')">
-        Sepete Ekle
-    </button>
         </div>
     </div>
 
-</section>
+	 <div class="urun-card">
+        <img src="../images/dracaena.jpg" alt="">
+        <div class="urun-info">
+            <h3>Dracaena</h3>
+           <p>
+Işık: Dolaylı ışık sever.<br>
+Sulama: Haftada 1(toprak kontrol edilerek)<br>
+Özellik: Ofise modern bir görünüm katar.<br>
+Dikkat: Musluk suyundaki klora hassastır.
+           </p>
+
+             <div class="fiyat">₺320</div>
+             <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Dracaena', 320, '../images/dracaena.jpg')">Sepete Ekle</a>
+
+        </div>
+    </div>
+
+	 </div>
+</div>
+
+
+<script>
+function sepeteAt(ad, fiyat, resim) {
+    // 1. Mevcut sepeti hafızadan çek, yoksa boş dizi oluştur
+    let sepet = JSON.parse(localStorage.getItem("botanivaSepet")) || [];
+
+    // 2. Yeni ürünü hazırla
+    let yeniUrun = { 
+        isim: ad, 
+        ucret: fiyat, 
+        gorsel: resim 
+    };
+
+    // 3. Listeye ekle ve hafızayı güncelle
+    sepet.push(yeniUrun);
+    localStorage.setItem("botanivaSepet", JSON.stringify(sepet));
+
+    // 4. Şık bir bildirim ver (SweetAlert kullanıyorsan onu çağırabilirsin)
+    alert(ad + " sepetinize eklendi! 🌿");
+}
+</script>
 </body>
 </html>
+

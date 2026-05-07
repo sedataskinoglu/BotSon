@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Botaniva</title>
     <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <style>
     body{
     background-color: rgb(245, 15, 15)808;
@@ -30,19 +31,44 @@
     display: block;
 
 }
-.search { 
-    flex: 0 1 400px;
+.search-box {
     display: flex;
-    justify-content: center;
-    position: relative;
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px; /* Tam yuvarlak kenarlar */
+    padding: 5px 15px;
+    transition: all 0.3s ease;
+    max-width: 400px; /* Genişliği buradan ayarlayabilirsin */
 }
 
-.search input {
-    width: 70%;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-radius: 20px 0 0 20px;
+.search-box:focus-within {
+    border-color: #7a9d54; /* Botaniva temasına uygun yeşil tonu */
+    box-shadow: 0 0 8px rgba(122, 157, 84, 0.2);
+}
+
+.search-box input {
+    border: none;
     outline: none;
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.search-box button {
+    background-color: #7a9d54; /* Marka rengin */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    margin-left: 10px;
+}
+
+.search-box button:hover {
+    background-color: #5f7a41; /* Üzerine gelince biraz daha koyu yeşil */
 }
 
 .kullanici_islemleri {
@@ -110,62 +136,72 @@
     color: #4CAF50;
 }
    
-.container{
-    max-width:1100px;
-    margin:30px auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-    padding:0 20px;
+/* Senin container yapın (Doğru görünüyor) */
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    display: grid;
+    /* auto-fit yerine auto-fill kullanırsan tek kart varken devleşmez */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 20px;
+    padding: 0 20px;
+    justify-content: center;
 }
 
-/* CARD */
-.card{
-    background:white;
-    border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-    transition:0.3s;
+/* Senin kart yapın + Eklemeler */
+.card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Kartların boyunu eşitler */
 }
 
-.card:hover{
-    transform:translateY(-5px);
+.card:hover {
+    transform: translateY(-5px);
 }
 
-.card img{
-    width:100%;
-    height:200px;
-    object-fit:cover;
+/* RESİMLERİN KAYMASINI ENGELLEYEN KRİTİK KISIM */
+.card img {
+    width: 100%;
+    height: 250px; /* Resim yüksekliğini sabitledik */
+    object-fit: cover; /* Resmi bozmadan kutuya doldurur */
+    display: block;
 }
 
-.card-content{
-    padding:15px;
+/* İçerik Alanı */
+.card-content {
+    padding: 15px;
+    flex-grow: 1; /* Butonu en alta iter */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.card-content h3{
-    color:#5d6d4e;
-    margin:0;
+.card-content h3 {
+    margin: 0 0 10px 0;
+    color: #5d6d4e;
 }
 
-.card-content p{
-    font-size:14px;
-    color:#666;
+.card-content p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
 }
 
-.price{
-    font-weight:bold;
-    margin-top:10px;
-}
-
-.btn{
-    display:block;
-    text-align:center;
-    margin-top:10px;
-    padding:10px;
-    background:#5d6d4e;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
+/* Butonun kartla uyumlu olması için */
+.btn {
+    display: block;
+    text-align: center;
+    background: #5d6d4e;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
 }
     </style>
 </head>
@@ -175,13 +211,12 @@
             <img src="../  images/logo.png" alt="Botaniva Logosu" class="logo_img">
         </div>
 
-         <div class="search">
-            <input type="text" placeholder="Ürünlerde Ara">
-            <button type="submit">ARA</button>
-        </div>
-
+         <div class="search-box">
+    <input type="text" id="searchBox" placeholder="Ürünlerde ara..." onkeypress="handleKeyPress(event)">
+    <button type="button" onclick="sayfayaGit()">ARA</button>
+</div>
         <div class="kullanici_islemleri">
-                <a href="#"><span>🛒</span></a>
+                <a href="sepet.html"><i class="bi bi-basket2-fill"></i></a>
                 <a href="giriskayitol.html" > Kayıt Ol</a>
                 <a href="giriskayitol.html"> Giriş Yap</a>   
         </div>
@@ -226,7 +261,7 @@
         <div class="card-content">
             <h3>Lego Kaktüs</h3>
             <div class="price">₺1200</div>
-            <a href="#" class="btn">Sepete Ekle</a>
+               <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Lego Kaktüs', 299, '../images/legkaktüs.png')">Sepete Ekle</a>
         </div>
     </div>
 
@@ -235,7 +270,7 @@
         <div class="card-content">
             <h3>Lego Kiraz Çiçeği</h3>
             <div class="price">₺1000</div>
-            <a href="#" class="btn">Sepete Ekle</a>
+             <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Lego Kiraz Çiçeği', 299, '../images/legokirazçi.png')">Sepete Ekle</a>
         </div>
     </div>
 
@@ -244,7 +279,7 @@
         <div class="card-content">
             <h3>Lego Krizantemi</h3>
             <div class="price">₺1100</div>
-            <a href="#" class="btn">Sepete Ekle</a>
+             <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Lego Krizam', 299, '../images/legokrizam.png')">Sepete Ekle</a>
         </div>
     </div>
 
@@ -253,7 +288,7 @@
         <div class="card-content">
             <h3>Lego Mutlu Bitkisi</h3>
             <div class="price">₺1000</div>
-            <a href="#" class="btn">Sepete Ekle</a>
+            <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Lego Mutlu Bitki', 299, '../images/legomutlubitki.png')">Sepete Ekle</a>
         </div>
     </div>
 
@@ -262,14 +297,32 @@
         <div class="card-content">
             <h3>Lego Orkidesi</h3>
             <div class="price">₺1300</div>
-            <a href="#" class="btn">Sepete Ekle</a>
+             <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Lego Orkide', 299, '../images/legoorkide.png')">Sepete Ekle</a>
         </div>
     </div>
 
    
 
 </div>
+<script>
+function sepeteAt(ad, fiyat, resim) {
+    // Hafızadaki sepeti al veya yeni oluştur
+    let sepet = JSON.parse(localStorage.getItem("botanivaSepet")) || [];
 
+    // Yeni ürünü nesne olarak hazırla
+    let yeniUrun = { 
+        isim: ad, 
+        ucret: fiyat, 
+        gorsel: resim 
+    };
+
+    // Sepete ekle ve kaydet
+    sepet.push(yeniUrun);
+    localStorage.setItem("botanivaSepet", JSON.stringify(sepet));
+
+    alert(ad + " sepetinize eklendi! 🌿");
+}
+</script>
 </body>
 </html>
 

@@ -92,28 +92,52 @@
         <button onclick="showForm('register')" id="registerBtn">Kayıt Ol</button>
     </div>
 
-    <!-- GİRİŞ -->
-    <div id="login" class="form active">
-        <input type="email" placeholder="E-posta">
-        <input type="password" placeholder="Şifre">
-        <button class="submit">Giriş Yap</button>
-    </div>
+    <!-- GİRİŞ BÖLÜMÜNDEKİ BUTONU ŞU ŞEKİLDE GÜNCELLE -->
+<div id="login" class="form active">
+    <input type="email" placeholder="E-posta">
+    <input type="password" placeholder="Şifre">
+    <button class="submit" onclick="loginFunc()">Giriş Yap</button>
+</div>
 
-    <!-- KAYIT -->
-    <div id="register" class="form">
-        <input type="text" placeholder="Ad Soyad">
-        <input type="email" placeholder="E-posta">
-        <input type="password" placeholder="Şifre">
-        <button class="submit">Kayıt Ol</button>
-    </div>
+    <!-- KAYIT BÖLÜMÜ -->
+<div id="register" class="form">
+    <input type="text" id="regName" placeholder="Ad Soyad">
+    <input type="email" id="regEmail" placeholder="E-posta">
+    <input type="password" id="regPass" placeholder="Şifre">
+    <button class="submit" onclick="registerFunc()">Kayıt Ol</button>
+</div>
 
 </div>
 
+
+
+<!-- SweetAlert2 kütüphanesini dahil ediyoruz -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
+    // Giriş yap butonuna basıldığında çalışan fonksiyon
+    function loginFunc() {
+        Swal.fire({
+            title: 'Hoş Geldiniz!',
+            text: 'Botaniva dünyasına başarıyla giriş yaptınız. Yönlendiriliyorsunuz...',
+            icon: 'success',
+            iconColor: '#5d6d4e',
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+            background: '#fefefe',
+            color: '#5d6d4e',
+            willClose: () => {
+                // Ana sayfaya yönlendirir. Eğer dosya 'pages' içindeyse '../index.html' yapmalısın.
+                window.location.href = "../index.html"; 
+            }
+        });
+    }
+
+    // Sekmeler arası geçişi sağlayan fonksiyon
     function showForm(type){
         document.getElementById("login").classList.remove("active");
         document.getElementById("register").classList.remove("active");
-
         document.getElementById(type).classList.add("active");
 
         document.getElementById("loginBtn").classList.remove("active");
@@ -125,6 +149,23 @@
             document.getElementById("registerBtn").classList.add("active");
         }
     }
+    function registerFunc() {
+    // 1. Şık mesajı göster (SweetAlert kütüphanesini eklediysen onu kullanır)
+    Swal.fire({
+        
+        text: 'Kaydınız başarıyla oluşturuldu.',
+        icon: 'success',
+        confirmButtonColor: '#5d6d4e',
+        confirmButtonText: 'Tamam'
+    });
+
+    // 2. Sayfadaki (formdaki) yazıları temizle
+    document.getElementById("regName").value = "";
+    document.getElementById("regEmail").value = "";
+    document.getElementById("regPass").value = "";
+    
+   
+}
 </script>
 
 </body>

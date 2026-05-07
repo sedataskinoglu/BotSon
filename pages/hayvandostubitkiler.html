@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Botaniva</title>
     <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <style>
-body{
+    body{
     background-color: rgb(245, 15, 15)808;
     line-height: 1.6;
      font-family: 'Roboto', sans-serif;
@@ -30,19 +31,44 @@ body{
     display: block;
 
 }
-.search { 
-    flex: 0 1 400px;
+.search-box {
     display: flex;
-    justify-content: center;
-    position: relative;
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px; /* Tam yuvarlak kenarlar */
+    padding: 5px 15px;
+    transition: all 0.3s ease;
+    max-width: 400px; /* Genişliği buradan ayarlayabilirsin */
 }
 
-.search input {
-    width: 70%;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-radius: 20px 0 0 20px;
+.search-box:focus-within {
+    border-color: #7a9d54; /* Botaniva temasına uygun yeşil tonu */
+    box-shadow: 0 0 8px rgba(122, 157, 84, 0.2);
+}
+
+.search-box input {
+    border: none;
     outline: none;
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.search-box button {
+    background-color: #7a9d54; /* Marka rengin */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    margin-left: 10px;
+}
+
+.search-box button:hover {
+    background-color: #5f7a41; /* Üzerine gelince biraz daha koyu yeşil */
 }
 
 .kullanici_islemleri {
@@ -110,62 +136,76 @@ body{
     color: #4CAF50;
 }
 
-.bitki_kartlari {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.urun-container {
+    display: grid !important; 
+    /* Kartların yan yana gelmesini sağlayan kritik satır */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 320px)) !important;
+    gap: 30px; 
+    justify-content: center; 
+    align-items: start; 
+    max-width: 1200px;
+    margin: 40px auto;
     padding: 20px;
 }
 
-.kart {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-top: 15px;
-    background: #f5f5f5;
-    padding: 15px;
-    border-radius: 10px;
+.urun-card {
+    width: 100%; 
+    max-width: 320px; /* Kartın devleşmesini engeller */
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: 0.3s;
+    margin: 0 auto; 
+    display: flex;
+    flex-direction: column;
 }
 
-.kart:hover {
-    transform: scale(1.02);
-}
+.urun-card:hover{
+            transform:scale(1.03);
+        }
 
-.kart img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
-}
+        .urun-card img{
+            width:100%;
+            height:200px;
+            object-fit:cover;
+        }
 
-.kart_icerik h3 {
-    margin: 0;
-    color: #2e7d32;
-}
+        .urun-info{
+            padding:15px;
+        }
 
-.kart_icerik pre {
-    margin-top: 10px;
-    color: #555;
-	font-size: 15px;
-	font-family: 'Roboto', sans-serif;
-}
-.sepete-ekle{
-    margin-top:10px;
-    padding:10px;
-    background:#5d6d4e;
-    color:white;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    width:100%;
-    transition:0.3s;
-}
+        .urun-info h3{
+            margin:0;
+            color:#5d6d4e;
+        }
 
-.sepete-ekle:hover{
-    background:#46563c;
-}
+        .urun-info p{
+            font-size:14px;
+            color:#666;
+            margin:8px 0;
+        }
 
+        .fiyat{
+            font-weight:bold;
+            color:#333;
+        }
+
+        .btn{
+            display:block;
+            text-align:center;
+            margin-top:10px;
+            padding:10px;
+            background:#5d6d4e;
+            color:white;
+            text-decoration:none;
+            border-radius:8px;
+        }
+
+        .btn:hover{
+            background:#46563c;
+        }
+   
     </style>
 </head>
 <body>
@@ -174,15 +214,15 @@ body{
             <img src="../images/logo.png" alt="Botaniva Logosu" class="logo_img">
         </div>
 
-         <div class="search">
-            <input type="text" placeholder="Ürünlerde Ara">
-            <button type="submit">ARA</button>
-        </div>
+        <div class="search-box">
+    <input type="text" id="searchBox" placeholder="Ürünlerde ara..." onkeypress="handleKeyPress(event)">
+    <button type="button" onclick="sayfayaGit()">ARA</button>
+</div>
 
         <div class="kullanici_islemleri">
-            <a href="#"><span>🛒</span></a>
+            <a href="sepet.html"><i class="bi bi-basket2-fill"></i></a>
                 <a href="giriskayitol.html" > Kayıt Ol</a>
-                <a href="giriskayitol.html "> Giriş Yap</a>   
+                <a href="giriskayitol.html"> Giriş Yap</a>   
         </div>
      </header>
   <nav>
@@ -218,79 +258,123 @@ body{
                 <li><a href="iletisim.html">İletişim</a></li>
         </ul>
   </nav>
+<div class="urun-container">
 
-  <div class="kart">
-        <img src="../images/maranta.jpg" alt="Bitki 1">
-        <div class="kart_icerik">
+    
+    <div class="urun-card">
+        <img src="../images/maranta.jpg" alt="">
+        <div class="urun-info">
             <h3>Maranta</h3>
-            <pre>
-    Işık: Dolaylı, loş ışıkta bile yaşayabilir
-    Sulama: Toprak sürekli hafif nemli olmalı
-    Nem: Yüksek nem sever, kuru ortamda yaprak uçları kurur
-    Dikkat: Soğuk hava akımından korunmalı
-            </pre>
-            <button class="sepete-ekle" onclick="sepeteEkle('Maranta')">Sepete Ekle</button>
+            <p>
+Işık: Dolaylı loş ışıkta bile yaşayabilir.<br>
+Sulama: Toprak sürekli hafif nemli olmalıdır.<br>
+Nem: Yüksek nem sever,kuru ortamda yaprak uçları kurur.<br>
+Dikkat: Soğuk hava akımınından korunmalı.
+            </p>
+               
+           
+            <div class="fiyat">₺299</div>
+              <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Maranta', 299, '../images/maranta.jpg')">Sepete Ekle</a>
         </div>
     </div>
 
-    <div class="kart">
-        <img src="../images/bostoneğreltiotu.jpg" alt="Bitki 2">
-        <div class="kart_icerik">
+    
+    <div class="urun-card">
+        <img src="../images/bostoneğreltiotu.jpg" alt="">
+        <div class="urun-info">
             <h3>Boston Eğreltiotu</h3>
-            <pre>
-    Işık: Gölgeli veya yarı aydınlık ortam
-    Sulama: Toprak asla tamamen kurumamalı
-    Nem: Çok nem sever (banyo gibi ortamlar ideal)
-    Dikkat: Kuruma olursa yapraklar hızla dökülür
-            </pre>
-            <button class="sepete-ekle" onclick="sepeteEkle('Boston Eğreltiotu')">Sepete Ekle</button>
+            <p>
+Işık:Gölgeli veya yarı karanlık ortam.<br>
+Sulama: Toprak asla tamamen kurumamalı.<br>
+Nem: Çok nem sever (banyo gibi ortamlar ideal)<br>
+Dikkat: Kuruma olursa yapraklar hızla dökülür. 
+            </p>
+               
+          
+            <div class="fiyat">₺350</div>
+             <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Boston Eğreltiotu', 350, '../images/bostoneğreltiotu.jpg')">Sepete Ekle</a>
+        
         </div>
     </div>
 
-    <div class="kart">
-        <img src="../images/peperomia.jpg" alt="Bitki 3">
-        <div class="kart_icerik">
+    <div class="urun-card">
+        <img src="../images/peperomia.jpg" alt="">
+        <div class="urun-info">
             <h3>Peperomia</h3>
-            <pre>
-    Işık: Orta ve dolaylı ışık
-    Sulama: Az su ister, toprak kurudukça sulanmalı
-    Nem: Normal oda nemi yeterli
-    Dikkat: Fazla sulama en büyük hatadır
-            </pre>
-            <button class="sepete-ekle" onclick="sepeteEkle('Peperomia')">Sepete Ekle</button>
+           <p>
+Işık: Orta ve dolaylı ışıkta yaşayabilir..<br>
+Sulama: Az su ister,toprak kurudukça sulanmalı.<br>
+Nem: Oda nemi yeterlidir.<br>
+Dikkat: Fazla sulama en büyük hatadır.
+             </p>
+
+
+         
+           
+           <div class="fiyat">₺180</div>
+             <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Peperomia', 180, '../images/peperomia.jpg')">Sepete Ekle</a>
+        
         </div>
     </div>
 
-        <div class="kart">
-        <img src="../images/orkide.jpg" alt="Bitki 4">
-        <div class="kart_icerik">
+
+    <div class="urun-card">
+        <img src="../images/orkide.jpg" alt="">
+        <div class="urun-info">
             <h3>Orkide</h3>
-            <pre>
-    Işık: Parlak ama direkt güneş almayan ortam
-    Sulama: Haftada 1 kez, kökler tamamen kurumadan ama suda bırakmadan
-    Nem: Orta–yüksek nem sever (banyo gibi nemli ortamlar iyi olabilir)
-    Dikkat: Fazla sulama en büyük hatadır, kökler çabuk çürür
-            </pre>
-            <button class="sepete-ekle" onclick="sepeteEkle('Orkide')">Sepete Ekle</button>
-        </div>
-    </div>                                                              
-
-        <div class="kart">
-        <img src="../images/kurdeleciceği.jpg" alt="Bitki 5">
-        <div class="kart_icerik">
-            <h3>Kurdele Çiçeği</h3>
-            <pre>
-    Işık: Dolaylı ışık, yarı gölgeye uyumlu
-    Sulama: Toprak kurudukça sulanmalı (haftada 1-2)
-    Nem: Normal oda nemi yeterli
-    Dikkat: Çok dayanıklı bir bitkidir ama aşırı su kökleri zayıflatır
-            </pre>
-            <button class="sepete-ekle" onclick="sepeteEkle('Kurdele Çiçeği')">Sepete Ekle</button>
+            <p>
+Işık: Parlak ama direkt güneş almayan ortam.<br>
+Sulama. Haftada 1 kez (kökler tamamen kurumadan ama suda bırakmadan) <br>
+Nem: Orta-yüksek nem sever.<br>
+Dikkat: Fazla sulama en büyük hatadır,kökler çabuk çürür.  
+            </p>
+            
+           
+            <div class="fiyat">₺320</div>
+           <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Orkide', 180, '../images/orkide.jpg')">Sepete Ekle</a>
+        
         </div>
     </div>
 
-</section>
+	 <div class="urun-card">
+        <img src="../images/kurdeleciceği.jpg" alt="">
+        <div class="urun-info">
+            <h3>Kurdele Çiçeği</h3>
+            <p>
+Işık: Dolaylı ışık,yarı gölgeyle uyumlu.<br>
+Sulama: Toprak kurudukça sulanmalı(haftada 1-2)<br>
+Nem: Normal oda nemi yeterli.<br>
+Dikkat: Çok dayanıklı bir bitkidir ama aşırı su kökleri zayıflatır.
+            </p>
 
-  
+
+            <div class="fiyat">₺320</div>
+             <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Kurdele Çiçeği', 180, '../images/kurdeleciceği.jpg')">Sepete Ekle</a>
+        
+        </div>
+    </div>
+
+	 
+</div>
+<script>
+function sepeteAt(ad, fiyat, resim) {
+    // Hafızadaki sepeti al veya yeni oluştur
+    let sepet = JSON.parse(localStorage.getItem("botanivaSepet")) || [];
+
+    // Yeni ürünü nesne olarak hazırla
+    let yeniUrun = { 
+        isim: ad, 
+        ucret: fiyat, 
+        gorsel: resim 
+    };
+
+    // Sepete ekle ve kaydet
+    sepet.push(yeniUrun);
+    localStorage.setItem("botanivaSepet", JSON.stringify(sepet));
+
+    alert(ad + " sepetinize eklendi! 🌿");
+}
+</script>
 </body>
 </html>
+
