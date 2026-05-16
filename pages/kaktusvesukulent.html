@@ -3,344 +3,417 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Botaniva</title>
-    <link rel="icon" href="images/logo.png" type="image/png">
+    <meta name="description" content="Botaniva Kaktüs ve Sukulentler - Eviniz veya çalışma masanız için en şık, az bakım isteyen dayanıklı kaktüs çeşitleri ve rozet yapılı sukulentler.">
+    <title>Botaniva - Kaktüs ve Sukulent</title>
+    <link rel="icon" href="../images/logo.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    
     <style>
-    body{
-    background-color: rgb(245, 15, 15)808;
-    line-height: 1.6;
-     font-family: 'Roboto', sans-serif;
-}
+    body {
+        background-color: #fcfcfc; /* Hatalı rgb kodu temizlendi */
+        line-height: 1.6;
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+    }
 
-.header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 50px;
-    border-bottom: 1px solid #eee;
-}
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 50px;
+        border-bottom: 1px solid #eee;
+    }
 
-.logo{
-    flex : 1;
-}
+    .logo {
+        flex : 1;
+    }
 
-.logo_img{
-    height: 100px;
-    width: auto;
-    display: block;
+    .logo_img {
+        height: 120px; /* Diğer sayfalarla milimetrik eşitlendi */
+        width: auto;
+        display: block;
+    }
 
-}
-.search-box {
-    display: flex;
-    align-items: center;
-    background-color: #fff;
-    border: 2px solid #e0e0e0;
-    border-radius: 25px; /* Tam yuvarlak kenarlar */
-    padding: 5px 15px;
-    transition: all 0.3s ease;
-    max-width: 400px; /* Genişliği buradan ayarlayabilirsin */
-}
+    /* Arama çubuğu tam boyuta uzatıldı */
+    .search-box {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        border: 2px solid #e0e0e0;
+        border-radius: 25px;
+        padding: 5px 15px;
+        transition: all 0.3s ease;
+        max-width: 550px; /* Diğer sayfalarla eşitlendi */
+        width: 100%;
+        margin: 0 30px;
+    }
 
-.search-box:focus-within {
-    border-color: #7a9d54; /* Botaniva temasına uygun yeşil tonu */
-    box-shadow: 0 0 8px rgba(122, 157, 84, 0.2);
-}
+    .search-box:focus-within {
+        border-color: #546749;
+        box-shadow: 0 0 8px rgba(84, 103, 73, 0.3);
+    }
 
-.search-box input {
-    border: none;
-    outline: none;
-    padding: 8px;
-    font-size: 14px;
-    width: 100%;
-}
+    .search-box input {
+        border: none;
+        outline: none;
+        padding: 8px;
+        font-size: 14px;
+        width: 100%;
+    }
 
-.search-box button {
-    background-color: #7a9d54; /* Marka rengin */
-    color: white;
-    border: none;
-    border-radius: 20px;
-    padding: 8px 20px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s ease;
-    margin-left: 10px;
-}
+    .search-box button {
+        background-color: #546749;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 8px 20px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.3s ease;
+        margin-left: 10px;
+    }
 
-.search-box button:hover {
-    background-color: #5f7a41; /* Üzerine gelince biraz daha koyu yeşil */
-}
-.kullanici_islemleri {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    gap: 15px;
-    font-size: 14px;
-}
-.kullanici_islemleri a {
-    color: #000;
+    .search-box button:hover {
+        background-color: #46563c;
+    }
 
-}
+    /* Sağ taraftaki kullanıcı linkleri büyütüldü */
+    .kullanici_islemleri {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        gap: 20px;
+        align-items: center;
+    }
 
-.nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 50px;
-}
+    .kullanici_islemleri a {
+        color: #212529;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 18px; /* 14px'ten 18px'e yükseltildi */
+        transition: color 0.2s ease;
+    }
 
-.menu_ogeleri {
-    display: flex; 
-    flex-direction: row;
-    justify-content: center;
-    list-style: none;
-    padding: 10px ;
-    border-bottom: 1px solid #eee;
-}
+    .kullanici_islemleri a:hover {
+        color: #546749;
+    }
 
-.menu_ogeleri li {
-    margin: 0 15px;
-    position: relative;
-}
+    .kullanici_islemleri a i {
+        font-size: 22px;
+        vertical-align: middle;
+    }
 
-.menu_ogeleri a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    font-size: 20px;
-}
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 50px;
+    }
 
-.dropdown_content {
-    display: none;
-    position: absolute;
-    background: #fff;
-    min-width: 200px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    z-index: 100;
-    border: 1px solid #eee;
-}
+    .menu_ogeleri {
+        display: flex; 
+        flex-direction: row;
+        justify-content: center;
+        list-style: none;
+        padding: 10px ;
+        border-bottom: 1px solid #eee;
+        margin: 0;
+    }
 
-.dropdown_content a {
-    display: block;
-    padding: 10px 15px;
-    border-bottom: 1px solid #f9f9f9;
-}
+    .menu_ogeleri li {
+        margin: 0 15px;
+        position: relative;
+    }
 
-.DropDown:hover .dropdown_content {
-    display: block;
-}
+    .menu_ogeleri a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        font-size: 20px;
+    }
 
- /* Üzerine gelince yeşil olur */
-.menu_ogeleri a:hover {
-    color: #4CAF50;
-}
+    .dropdown_content {
+        display: none;
+        position: absolute;
+        background: #fff;
+        min-width: 200px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        z-index: 100;
+        border: 1px solid #eee;
+    }
 
- 
-.urun-container {
-    display: grid !important; 
-    /* Kartların yan yana gelmesini sağlayan kritik satır */
-    grid-template-columns: repeat(auto-fill, minmax(280px, 320px)) !important;
-    gap: 30px; 
-    justify-content: center; 
-    align-items: start; 
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 20px;
-}
+    .dropdown_content a {
+        display: block;
+        padding: 10px 15px;
+        border-bottom: 1px solid #f9f9f9;
+    }
 
-.urun-card {
-    width: 100%; 
-    max-width: 320px; /* Kartın devleşmesini engeller */
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: 0.3s;
-    margin: 0 auto; 
-    display: flex;
-    flex-direction: column;
-}
+    .DropDown:hover .dropdown_content {
+        display: block;
+    }
 
-.urun-card:hover{
-            transform:scale(1.03);
-        }
+    .menu_ogeleri a:hover {
+        color: #546749;
+    }
 
-        .urun-card img{
-            width:100%;
-            height:200px;
-            object-fit:cover;
-        }
+    .urun-container {
+        display: grid !important; 
+        grid-template-columns: repeat(auto-fill, minmax(280px, 320px)) !important;
+        gap: 30px; 
+        justify-content: center; 
+        align-items: start; 
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 20px;
+    }
 
-        .urun-info{
-            padding:15px;
-        }
+    .urun-card {
+        width: 100%; 
+        max-width: 320px;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(84, 103, 73, 0.15);
+        transition: 0.3s;
+        margin: 0 auto; 
+        display: flex;
+        flex-direction: column;
+    }
 
-        .urun-info h3{
-            margin:0;
-            color:#5d6d4e;
-        }
+    .urun-card:hover{
+        transform:scale(1.03);
+    }
 
-        .urun-info p{
-            font-size:14px;
-            color:#666;
-            margin:8px 0;
-        }
+    .urun-card img{
+        width:100%;
+        height:200px;
+        object-fit:cover;
+    }
 
-        .fiyat{
-            font-weight:bold;
-            color:#333;
-        }
+    .urun-info{
+        padding:15px;
+        flex-grow: 1;
+    }
 
-        .btn{
-            display:block;
-            text-align:center;
-            margin-top:10px;
-            padding:10px;
-            background:#5d6d4e;
-            color:white;
-            text-decoration:none;
-            border-radius:8px;
-        }
+    .urun-info h3{
+        margin:0;
+        color: #546749;
+    }
 
-        .btn:hover{
-            background:#46563c;
-        }
+    .urun-info p{
+        font-size:14px;
+        color:#333; /* Okunabilirlik kontrastı artırıldı */
+        margin:8px 0;
+    }
+
+    .fiyat{
+        font-weight:bold;
+        color:#111;
+        font-size: 18px;
+    }
+
+    .btn{
+        display:block;
+        text-align:center;
+        margin-top:10px;
+        padding:10px;
+        background:#546749;
+        color:white;
+        text-decoration:none;
+        border-radius:8px;
+        transition: background 0.3s;
+        font-weight: bold;
+    }
+
+    .btn:hover{
+        background:#46563c;
+    }
    
+    .sr-only {
+        display: none;
+    }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="logo">
-            <img src="../images/logo.png" alt="Botaniva Logosu" class="logo_img">
-        </div>
 
-        <div class="search-box">
-    <input type="text" id="searchBox" placeholder="Ürünlerde ara..." onkeypress="handleKeyPress(event)">
-    <button type="button" onclick="sayfayaGit()">ARA</button>
-</div>
-        <div class="kullanici_islemleri">
-            <a href="sepet.html"><i class="bi bi-basket2-fill"></i></a>
-                <a href="giriskayitol.html" > Kayıt Ol</a>
-                <a href="giriskayitol.html"> Giriş Yap</a>   
-        </div>
-     </header>
-  <nav>
-        <ul class="menu_ogeleri">
-                <li><a href="../index.html">Hakkımızda</a></li>
-                 <li class="DropDown">
-                    <a href="#" class="dropbtn">Dükkan</a>
-                    <div class="dropdown_content">
-                        <a href="ofisbitkileri.html">Ofis Bitkileri</a>
-                        <a href="salonbitkileri.html">Salon Bitkileri</a>
-                        <a href="hayvandostubitkiler.html">Hayvan Dostu Bitkiler</a>
-                        <a href="hediyelikbitkiler.html">Hediyelik Bitkiler</a>
-                        <a href="legocicekler.html">Lego Çiçekler</a>
-                    </div>
-                </li>
-                <li class="DropDown">
-                    <a href="#" class="dropbtn">İç Mekan Süs Bitkileri</a>
-                    <div class="dropdown_content">
-                        <a href="saksilibitkiler.html">Saksılı Bitkileri</a>
-                        <a href="kaktusvesukulent.html">Kaktüs ve Sukulent</a>
-                        <a href="aranjmanlar.html">Aranjmanlar</a>
-                    </div>
-                </li>
-                <li class="DropDown">
-                    <a href="#" class="dropbtn">Dekoratif Saksılar</a>
-                    <div class="dropdown_content">
-                        <a href="kumassaksilar.html">Kumaş Saksılar</a>
-                        <a href="ozeltasarimsaksilar.html">Özel Tasarım Saksılar</a>
-                        <a href="mozaiksaksilar.html">Mozaik Saksılar</a>
-                    </div>
-                </li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="iletisim.html">İletişim</a></li>
-        </ul>
-  </nav>
+<header class="header">
+    <div class="logo">
+        <img src="../images/logo.png" alt="Botaniva Logosu" class="logo_img">
+    </div>
+
+    <div class="search-box">
+        <label for="searchBox" class="sr-only">Ürün Ara</label>
+        <input type="text" id="searchBox" placeholder="Ürünlerde ara..." onkeypress="handleKeyPress(event)">
+        <button type="button" onclick="sayfayaGit()">ARA</button>
+    </div>
+
+    <div class="kullanici_islemleri">
+        <a href="sepet.html" aria-label="Alışveriş Sepetim"><i class="bi bi-basket2-fill"></i></a>
+        <a href="giriskayitol.html">Kayıt Ol</a>
+        <a href="giriskayitol.html">Giriş Yap</a>   
+    </div>
+</header>
+
+<nav>
+    <ul class="menu_ogeleri">
+        <li><a href="../index.html">Hakkımızda</a></li>
+        <li class="DropDown">
+            <a href="#" class="dropbtn">Dükkan</a>
+            <div class="dropdown_content">
+                <a href="ofisbitkileri.html">Ofis Bitkileri</a>
+                <a href="salonbitkileri.html">Salon Bitkileri</a>
+                <a href="hayvandostubitkiler.html">Hayvan Dostu Bitkiler</a>
+                <a href="hediyelikbitkiler.html">Hediyelik Bitkiler</a>
+                <a href="legocicekler.html">Lego Çiçekler</a>
+            </div>
+        </li>
+        <li class="DropDown">
+            <a href="#" class="dropbtn">İç Mekan Süs Bitkileri</a>
+            <div class="dropdown_content">
+                <a href="saksilibitkiler.html">Saksılı Bitkileri</a>
+                <a href="kaktusvesukulent.html">Kaktüs ve Sukulent</a>
+                <a href="aranjmanlar.html">Aranjmanlar</a>
+            </div>
+        </li>
+        <li class="DropDown">
+            <a href="#" class="dropbtn">Dekoratif Saksılar</a>
+            <div class="dropdown_content">
+                <a href="kumassaksilar.html">Kumaş Saksılar</a>
+                <a href="ozeltasarimsaksilar.html">Özel Tasarım Saksılar</a>
+                <a href="mozaiksaksilar.html">Mozaik Saksılar</a>
+            </div>
+        </li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
+    </ul>
+</nav>
+
 <div class="urun-container">
-
-    
     <div class="urun-card">
-        <img src="../images/altıntopkaktüs.jpg" alt="">
+        <img src="../images/altıntopkaktüs.jpg" alt="Kaktüs Çeşitleri - Altın Top Kaktüs">
         <div class="urun-info">
             <h3>Altın Top Kaktüs</h3>
             <p>Yuvarlak formu ve sarı dikenleriyle çok dekoratiftir.</p>
             <div class="fiyat">₺99</div>
-               <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Altın Top Kaktüs', 299, '../images/altıntopkaktüs.jpg')">Sepete Ekle</a>
+            <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Altın Top Kaktüs', 99, '../images/altıntopkaktüs.jpg')">Sepete Ekle</a>
         </div>
     </div>
 
-    
     <div class="urun-card">
-        <img src="../images/dikenliincirkaktüsü.jpg" alt="">
+        <img src="../images/dikenliincirkaktüsü.jpg" alt="Büyük Dikenli Kaktüs - Dikenli İncir Kaktüsü">
         <div class="urun-info">
             <h3>Dikenli İncir Kaktüsü</h3>
             <p>Yassı formu ve dikenli uçları ile dikkat çekmektedir.</p>
             <div class="fiyat">₺120</div>
-               <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Dikenli İncir Kaktüsü', 299, '../images/dikenliincirkaktüsü.jpg')">Sepete Ekle</a>
+            <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Dikenli İncir Kaktüsü', 120, '../images/dikenliincirkaktüsü.jpg')">Sepete Ekle</a>
         </div>
     </div>
 
     <div class="urun-card">
-        <img src="../images/Mammillaria.jpg" alt="">
+        <img src="../images/Mammillaria.jpg" alt="Çiçek Açan Kaktüs Türü - Mammillaria">
         <div class="urun-info">
             <h3>Mammillaria</h3>
             <p>Küçük, toplu kaktüs türüdür ve zamanla çiçek açabilir.</p>
             <div class="fiyat">₺80</div>
-              <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Mammillaria', 299, '../images/Mammillaria.jpg')">Sepete Ekle</a>
+            <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Mammillaria', 80, '../images/Mammillaria.jpg')">Sepete Ekle</a>
         </div>
     </div>
 
-
     <div class="urun-card">
-        <img src="../images/Echeveria.jpg" alt="">
+        <img src="../images/Echeveria.jpg" alt="Gül Formlu Sukulent Çeşidi - Echeveria">
         <div class="urun-info">
             <h3>Echeveria</h3>
             <p>Gül şeklinde rozet yapıya sahip estetik bir sukulenttir.</p>
             <div class="fiyat">₺100</div>
-            <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Echeveria', 299, '../images/Echeveria.jpg')">Sepete Ekle</a>
+            <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Echeveria', 100, '../images/Echeveria.jpg')">Sepete Ekle</a>
         </div>
     </div>
 
-	 <div class="urun-card">
-        <img src="../images/Haworthia.jpg" alt="">
+    <div class="urun-card">
+        <img src="../images/Haworthia.jpg" alt="Masa Üstü Dekoratif Sukulent - Haworthia Zebra">
         <div class="urun-info">
             <h3>Haworthia</h3>
-            <p>Parlak ama dolaylı ışığı severler.Küçük ve şık masa bitkisidir.</p>
+            <p>Parlak ama dolaylı ışığı severler. Küçük ve şık masa bitkisidir.</p>
             <div class="fiyat">₺140</div>
-            <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Haworthia', 299, '../images/Haworthia.jpg')">Sepete Ekle</a>
+            <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Haworthia', 140, '../images/Haworthia.jpg')">Sepete Ekle</a>
         </div>
     </div>
 
-	 <div class="urun-card">
-        <img src="../images/Sedum.jpg" alt="">
+    <div class="urun-card">
+        <img src="../images/Sedum.jpg" alt="Hızlı Büyüyen Yayılıcı Sukulent - Sedum">
         <div class="urun-info">
             <h3>Sedum</h3>
-            <p>Hızlı yayılan ve kolay çoğalan sukulent türüdür.</p>
+            <p>Hızlı yayılan ve kolay çoğalğan sukulent türüdür.</p>
             <div class="fiyat">₺150</div>
-             <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Sedum', 299, '../images/Sedum.jpg')">Sepete Ekle</a>
+            <a href="javascript:void(0)" class="btn" onclick="sepeteAt('Sedum', 150, '../images/Sedum.jpg')">Sepete Ekle</a>
         </div>
     </div>
 </div>
+
 <script>
 function sepeteAt(ad, fiyat, resim) {
-    // Hafızadaki sepeti al veya yeni oluştur
     let sepet = JSON.parse(localStorage.getItem("botanivaSepet")) || [];
-
-    // Yeni ürünü nesne olarak hazırla
     let yeniUrun = { 
         isim: ad, 
         ucret: fiyat, 
         gorsel: resim 
     };
-
-    // Sepete ekle ve kaydet
     sepet.push(yeniUrun);
     localStorage.setItem("botanivaSepet", JSON.stringify(sepet));
-
     alert(ad + " sepetinize eklendi! 🌿");
+}
+
+function sayfayaGit() {
+    // Kategori arama yönlendirmesi
+}
+function handleKeyPress(event) {
+    if (event.key === "Enter") {
+        sayfayaGit();
+    }
+}
+</script>
+<script>
+function sayfayaGit() {
+    // Input içindeki metni al, küçük harfe çevir ve boşlukları temizle
+    var aranan = document.getElementById("searchBox").value.toLowerCase().trim();
+
+    // DİKKAT: Alt sayfalarda olduğumuz için yönlendirme yollarının başına "pages/" EKLEMİYORUZ.
+    // Çünkü bu sayfalar zaten "pages" klasörünün içinde.
+    if (aranan.includes("ofis")) {
+        window.location.href = "ofisbitkileri.html";
+    } 
+    else if (aranan.includes("salon")) {
+        window.location.href = "salonbitkileri.html";
+    } 
+    else if (aranan.includes("kaktüs") || aranan.includes("kaktus")) {
+        window.location.href = "kaktusvesukulent.html";
+    } 
+    else if (aranan.includes("hediye")) {
+        window.location.href = "hediyelikbitkiler.html";
+    } 
+    else if (aranan.includes("lego")) {
+        window.location.href = "legocicekler.html";
+    }
+    else if (aranan.includes("saksı") || aranan.includes("saksi")) {
+        if (aranan.includes("kumaş") || aranan.includes("kumas")) {
+            window.location.href = "kumassaksilar.html";
+        } else if (aranan.includes("özel") || aranan.includes("ozel")) {
+            window.location.href = "ozeltasarimsaksilar.html";
+        } else {
+            window.location.href = "mozaiksaksilar.html";
+        }
+    }
+    else {
+        alert("Aradığınız kategori bulunamadı. Lütfen 'ofis', 'salon', 'saksı' veya 'kaktüs' gibi terimler deneyin.");
+    }
+}
+
+// Enter tuşuna basıldığında da arama yapması için gereken fonksiyon
+function handleKeyPress(event) {
+    if (event.key === 'Enter') {
+        sayfayaGit();
+    }
 }
 </script>
 </body>
 </html>
-

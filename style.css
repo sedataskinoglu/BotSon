@@ -1,7 +1,7 @@
 body{
     background-color: #fff;
     line-height: 1.6;
-     font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .header{
@@ -20,8 +20,9 @@ body{
     height: 120px;
     width: auto;
     display: block;
-
 }
+
+/* Arama çubuğunun genel kutusu */
 .search-box {
     display: flex;
     align-items: center;
@@ -30,24 +31,28 @@ body{
     border-radius: 25px; /* Tam yuvarlak kenarlar */
     padding: 5px 15px;
     transition: all 0.3s ease;
-    max-width: 8000px; /* Genişliği buradan ayarlayabilirsin */
+    
+    /* 8000px değeri ideal bir uzunluğa (550px) çekildi ve esnetildi */
+    max-width: 550px; 
+    width: 100%;
+    margin: 0 30px; /* Sağındaki ve solundaki elemanlardan dengeli uzaklaşması için */
 }
 
 .search-box:focus-within {
-    border-color: #7a9d54; /* Botaniva temasına uygun yeşil tonu */
-    box-shadow: 0 0 8px rgba(122, 157, 84, 0.2);
+    border-color: #546749; /* Botaniva temasına uygun yeşil tonu */
+    box-shadow: 0 0 8px rgba(84, 103, 73, 0.3); /* Yumuşatılmış gölge etkisi */
 }
 
 .search-box input {
     border: none;
     outline: none;
     padding: 8px;
-    font-size: 14px;
+    font-size: 15px; /* Okunabilirlik için bir tık büyütüldü */
     width: 100%;
 }
 
 .search-box button {
-    background-color: #7a9d54; /* Marka rengin */
+    background-color: #546749; /* İstediğin yeni marka rengi */
     color: white;
     border: none;
     border-radius: 20px;
@@ -59,7 +64,35 @@ body{
 }
 
 .search-box button:hover {
-    background-color: #5f7a41; /* Üzerine gelince biraz daha koyu yeşil */
+    background-color: #46563c; /* Hover durumunda bir tık koyusu daha asil duracaktır */
+}
+
+/* KODUNDA EKSİK OLAN KULLANICI İŞLEMLERİ ALANI BURAYA EKLENDİ */
+.kullanici_islemleri {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px; /* Linklerin ve sepetin arasındaki boşluk açıldı */
+    align-items: center;
+}
+
+/* Kayıt Ol ve Giriş Yap Linklerini Büyüten Bölüm */
+.kullanici_islemleri a {
+    color: #212529;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px; /* Eski 14px değerinden 18px'e yükseltilerek büyütüldü */
+    transition: color 0.2s ease;
+}
+
+.kullanici_islemleri a:hover {
+    color: #546749; /* Üzerine gelince marka yeşiline döner */
+}
+
+/* Sepet ikonunun linklerle aynı hizada ve dengeli görünmesi için boyutu */
+.kullanici_islemleri a i {
+    font-size: 22px; 
+    vertical-align: middle;
 }
 
 .kullanici_islemleri {
@@ -568,6 +601,7 @@ h3 {
         max-width: 100%;
     }
 }
+
 
 
 

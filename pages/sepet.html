@@ -285,4 +285,47 @@ function sepetiTemizle() {
 // Sayfa yüklendiğinde sepeti tara
 window.onload = sepetiGoster;
 </script>
+<script>
+function sayfayaGit() {
+    // Input içindeki metni al, küçük harfe çevir ve boşlukları temizle
+    var aranan = document.getElementById("searchBox").value.toLowerCase().trim();
+
+    // DİKKAT: Alt sayfalarda olduğumuz için yönlendirme yollarının başına "pages/" EKLEMİYORUZ.
+    // Çünkü bu sayfalar zaten "pages" klasörünün içinde.
+    if (aranan.includes("ofis")) {
+        window.location.href = "ofisbitkileri.html";
+    } 
+    else if (aranan.includes("salon")) {
+        window.location.href = "salonbitkileri.html";
+    } 
+    else if (aranan.includes("kaktüs") || aranan.includes("kaktus")) {
+        window.location.href = "kaktusvesukulent.html";
+    } 
+    else if (aranan.includes("hediye")) {
+        window.location.href = "hediyelikbitkiler.html";
+    } 
+    else if (aranan.includes("lego")) {
+        window.location.href = "legocicekler.html";
+    }
+    else if (aranan.includes("saksı") || aranan.includes("saksi")) {
+        if (aranan.includes("kumaş") || aranan.includes("kumas")) {
+            window.location.href = "kumassaksilar.html";
+        } else if (aranan.includes("özel") || aranan.includes("ozel")) {
+            window.location.href = "ozeltasarimsaksilar.html";
+        } else {
+            window.location.href = "mozaiksaksilar.html";
+        }
+    }
+    else {
+        alert("Aradığınız kategori bulunamadı. Lütfen 'ofis', 'salon', 'saksı' veya 'kaktüs' gibi terimler deneyin.");
+    }
+}
+
+// Enter tuşuna basıldığında da arama yapması için gereken fonksiyon
+function handleKeyPress(event) {
+    if (event.key === 'Enter') {
+        sayfayaGit();
+    }
+}
+</script>
 </body>
